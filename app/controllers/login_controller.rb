@@ -11,5 +11,17 @@ class LoginController < ApplicationController
       render json: {logged: false}, status: :unauthorized
     end
   end
+  
+  def admin
+    @admin = Admin.find_by email: params[:email]
+    if params[:password] == @admin.password
+      render json: {
+        logged: true, 
+        admin: @admin
+      }, status: :ok
+    else
+      render json: {logged: false}, status: :unauthorized
+    end
+  end
 
 end
