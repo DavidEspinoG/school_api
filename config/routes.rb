@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  post '/login/student', to: 'login#student'
   resources :students
   resources :courses
   resources :grades
