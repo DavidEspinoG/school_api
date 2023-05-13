@@ -8,12 +8,13 @@ Rails.application.routes.draw do
   post '/login/admin', to: 'login#admin'
   
   resources :students do 
-    resources :courses
+    resources :courses, except: [:index]
     resources :grades
   end
 
   resources :courses, only: [:index]
 
   get 'students/:student_id/courses/:course_id/grades', to: 'grades#grades_of_course'
+  get 'students/:student_id/courses/', to: 'courses#courses_of_student'
 end
 
