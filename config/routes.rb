@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :grades
   end
 
+  resources :courses, only: [:index]
+
   get 'students/:student_id/courses/:course_id/grades', to: 'grades#grades_of_course'
 end
 
