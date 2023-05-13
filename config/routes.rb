@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/login/student', to: 'login#student'
   post '/login/admin', to: 'login#admin'
   get '/student/:id/courses', to: 'students#courses'
-  get '/student/:id/grades', to: 'students#grades'
+  get '/student/:id/grades/:course_id', to: 'students#grades'
   resources :students
   resources :courses
   resources :grades

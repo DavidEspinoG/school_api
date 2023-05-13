@@ -13,4 +13,9 @@ class CoursesController < ApplicationController
       render json: {message: 'not created'}, status: :unprocessable_entity
     end
   end
+
+  def show
+    @course = Course.find_by(id: params[:id])
+    render json: @course, status: :ok
+  end
 end

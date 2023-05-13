@@ -6,7 +6,8 @@ class StudentsController < ApplicationController
   end
 
   def create 
-    @student = Student.new email: params[:email], password: params[:password]
+    @student = Student.new email: params[:email], password: params[:password], 
+      name: params[:name]
     if @student.save
       render json: {message: 'created'}, status: :ok
     else
