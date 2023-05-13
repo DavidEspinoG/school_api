@@ -6,7 +6,8 @@ class CoursesController < ApplicationController
   end
 
   def create 
-    @course = Course.new name: params[:name]
+    @student = Student.find_by(id: params[:student_id])
+    @course = @student.courses.new name: params[:name]
     if @course.save
       render json: {message: 'created'}, status: :ok
     else
@@ -15,6 +16,7 @@ class CoursesController < ApplicationController
   end
 
   def show
+    # @student = Student.find_by
     @course = Course.find_by(id: params[:id])
     render json: @course, status: :ok
   end

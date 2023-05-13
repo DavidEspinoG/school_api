@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_12_123948) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_13_041844) do
   create_table "admins", force: :cascade do |t|
     t.string "email"
     t.string "password"
@@ -36,6 +36,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_12_123948) do
     t.index ["student_id"], name: "index_grades_on_student_id"
   end
 
+  create_table "inscriptions", force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "course_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_inscriptions_on_course_id"
+    t.index ["student_id"], name: "index_inscriptions_on_student_id"
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "email"
     t.string "password"
@@ -46,4 +55,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_12_123948) do
 
   add_foreign_key "grades", "courses"
   add_foreign_key "grades", "students"
+  add_foreign_key "inscriptions", "courses"
+  add_foreign_key "inscriptions", "students"
 end

@@ -1,19 +1,37 @@
 class GradesController < ApplicationController
 
   def index 
-    @grades = Grade.all
+    @student = Student.find_by(id: params[:student_id])
+    @grades = @student.grades
     render json: @grades, status: :ok
   end
 
   def create 
-    @grade = Grade.new student_id: params[:student_id], 
-      course_id: params[:course_id], quarter: params[:quarter], 
+    @student = Student.find_by(id: params[:student_id])
+    @grade = @student.grades.new course_id: params[:course_id], quarter: params[:quarter], 
       passed: params[:passed], grade: params[:grade]
     if @grade.save
       render json: {message: 'created'}, status: :ok
     else
       render json: {message: 'not_created'}, status: :unprocessable_entity
     end
+  end
+
+  def destroy 
+    @grade = Grade.find_by(id: params[:id])
+    if @grade 
+      @grade.destroy
+    end
+    
+    render json: {message: 'deleted'}, status: :ok
+    
+
+  end
+
+  def grades_of_course
+    @student = Student.find_by(id: params[:student_id])
+    @grades = @student.grades.where(course_id: params[:course_id])
+    render json: @grades, status: :ok
   end
 
 end

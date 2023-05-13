@@ -3,11 +3,15 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  #login
   post '/login/student', to: 'login#student'
   post '/login/admin', to: 'login#admin'
-  get '/student/:id/courses', to: 'students#courses'
-  get '/student/:id/grades/:course_id', to: 'students#grades'
-  resources :students
-  resources :courses
-  resources :grades
+  
+  resources :students do 
+    resources :courses
+    resources :grades
+  end
+
+  get 'students/:student_id/courses/:course_id/grades', to: 'grades#grades_of_course'
 end
+
