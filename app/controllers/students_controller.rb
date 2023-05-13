@@ -15,17 +15,14 @@ class StudentsController < ApplicationController
     end
   end
 
-  # def courses
-  #   @student = Student.find_by(id: params[:id])
-  #   @courses = @student.courses
-  #   render json: @courses, status: :ok
-  # end
-
-  # def grades
-  #   @student = Student.find_by(id: params[:id])
-  #   @grades = @student.grades.where(course_id: params[:course_id])
-  #   render json: @grades, status: :ok
-  # end
+  def destroy 
+    @student = Student.find_by_id params[:id]
+    if @student.destroy
+      render json: {message: 'deleted'}, status: :ok
+    else
+      render json: {message: 'not_deleted'}, status: :unprocessable_entity
+    end
+  end
 
   private 
 
