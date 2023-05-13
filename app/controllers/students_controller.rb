@@ -24,6 +24,11 @@ class StudentsController < ApplicationController
     end
   end
 
+  def show
+    @student = Student.find_by_id params[:id]
+    render json: @student, status: :ok
+  end
+
   private 
 
   def student_params
