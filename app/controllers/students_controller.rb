@@ -29,6 +29,11 @@ class StudentsController < ApplicationController
     render json: @student, status: :ok
   end
 
+  def students_of_course
+    @students = Student.all.where(id: params[:course_id])
+    render json: @students, status: :ok
+  end
+
   private 
 
   def student_params
