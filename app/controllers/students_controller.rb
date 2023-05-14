@@ -30,8 +30,13 @@ class StudentsController < ApplicationController
   end
 
   def students_of_course
-    @students = Student.all.where(id: params[:course_id])
-    render json: @students, status: :ok
+    @course = Course.find_by(id: params[:course_id])
+    if @course
+      @students = @course.students
+      render json: @students, status: :ok
+    else 
+      render json: {message: 'not found'}, status: :not_found
+    end
   end
 
   private 
