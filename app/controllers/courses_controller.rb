@@ -27,4 +27,15 @@ class CoursesController < ApplicationController
     @courses = @student.courses
     render json: @courses, status: :ok
   end
+
+  def destroy 
+    @course = Course.find_by_id params[:id]
+    if @course
+      @course.destroy
+      render json: {message: 'deleted'}, status: :ok
+    else
+      render json: {messsage: 'not_found'}, status: :not_found
+    end
+  end
+
 end

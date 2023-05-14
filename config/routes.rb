@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     resources :grades
   end
 
-  resources :courses, only: [:index]
+  resources :courses, only: [:index, :destroy]
+  resources :grades, only: [:destroy, :update]
+
 
   get 'students/:student_id/courses/:course_id/grades', to: 'grades#grades_of_course'
   get 'students/:student_id/courses/', to: 'courses#courses_of_student'

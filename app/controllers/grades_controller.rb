@@ -24,11 +24,23 @@ class GradesController < ApplicationController
     @grade = Grade.find_by(id: params[:id])
     if @grade 
       @grade.destroy
+      render json: {message: 'deleted'}, status: :ok
+    else 
+      render json: {message: 'not_found'}, status: :not_found
     end
-    
-    render json: {message: 'deleted'}, status: :ok
-    
+  end
 
+  def update 
+    @grade = Grade.find_by(id: params[:id])
+    if @grade 
+      if @grade.update grade: params[:grade], passed: params[:passed]
+        render json: {message: 'updated', status: :ok}
+      else
+        render json: {message: 'not_updated', status: :unprocessable_entity}
+      end
+    else 
+      render json: {message: 'not_found'}, status: :not_found
+    end
   end
 
   def grades_of_course
