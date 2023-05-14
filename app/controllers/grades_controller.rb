@@ -13,6 +13,7 @@ class GradesController < ApplicationController
     @grade = @student.grades.new course_id: params[:course_id], quarter: params[:quarter], 
       passed: params[:passed], grade: params[:grade]
     if @grade.save
+      GradesMailer.with(student: @student).new_grade.deliver_later
       render json: {message: 'created'}, status: :ok
     else
       render json: {message: 'not_created'}, status: :unprocessable_entity
