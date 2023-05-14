@@ -23,13 +23,17 @@ class LoginController < ApplicationController
   
   def admin
     @admin = Admin.find_by email: params[:email]
-    if params[:password] == @admin.password
-      render json: {
-        logged: true, 
-        admin: @admin
-      }, status: :ok
+    if @admin 
+      if params[:password] == @admin.password
+        render json: {
+          logged: true, 
+          admin: @admin
+        }, status: :ok
+      else
+        render json: {logged: false}, status: :unauthorized
+      end
     else
-      render json: {logged: false}, status: :unauthorized
+      render json: {message: 'not_found'}, status: :unauthorized 
     end
   end
 
