@@ -1,5 +1,14 @@
 class LoginController < ApplicationController
 
+  def create
+    @admin = Admin.new email: params[:email], password: params[:password]
+    if @admin.save
+      render json: {message: 'created'}, status: :ok
+    else
+      render json: {message: 'not_created'}, status: :unprocessable_entity
+    end
+  end
+
   def student
     @student = Student.find_by email: params[:email]
     if params[:password] == @student.password
