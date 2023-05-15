@@ -1,11 +1,14 @@
 class GradesController < ApplicationController
-  rescue_from ActiveRecord::RecordInvalid do 
-    render json: {message: 'not_created'}, status: :unprocessable_entity
+  rescue_from ActiveRecord::RecordInvalid do |error| 
+    render json: error, status: :unprocessable_entity
   end
   def index 
-    @student = Student.find_by(id: params[:student_id])
-    @grades = @student.grades
-    render json: @grades, status: :ok
+    if @student = Student.find_by(id: params[:student_id])
+      @grades = @student.grades
+      render json: @grades, status: :ok
+    else 
+      render json: {message: :not_found}, status: :not_found
+    end
   end
 
   def create 

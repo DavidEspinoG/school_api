@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :courses, only: [:index, :destroy]
   resources :grades, only: [:destroy, :update]
 
-
+  post '/createAdmin', to: 'login#create'
   get 'students/:student_id/courses/:course_id/grades', to: 'grades#grades_of_course'
   get 'students/:student_id/courses/', to: 'courses#courses_of_student'
   get 'students/course/:course_id', to: 'students#students_of_course'
