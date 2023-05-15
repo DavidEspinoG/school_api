@@ -56,7 +56,7 @@ SPA created using React and Redux for the Front-end and Ruby on Rails for the ba
 ## 🚀 Live Demo <a id="live-demo"></a>
 
 
-- [Live demo](https://bookstore-7ktx.onrender.com/)
+- [Live demo](https://school-fronend.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
