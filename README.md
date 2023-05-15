@@ -1,24 +1,88 @@
-# README
+<a id="readme-top"></a>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 📗 Table of Contents
 
-Things you may want to cover:
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 Amazing School ](#about-project)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+    - [🚀 Live Demo ](#-live-demo-)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [📝 License ](#-license-)
 
-* Ruby version
+<!-- PROJECT DESCRIPTION -->
 
-* System dependencies
+# 📖 Amazing School <a id="about-project"></a>
 
-* Configuration
+SPA created using React and Redux for the Front-end and Ruby on Rails for the backend. It emulates a school web pages that manages students, courses and grades. 
 
-* Database creation
+## 🛠 Built With <a id="built-with"></a>
 
-* Database initialization
+### Tech Stack <a id="tech-stack"></a>
 
-* How to run the test suite
+- React, Redux and Ruby on Rails
 
-* Services (job queues, cache servers, search engines, etc.)
+<details>
+  <summary>Frontend</summary>
+  <ul>
+    <li>React and Redux/li>
+  </ul>
+</details>
+<details>
+  <summary>Backend</summary>
+  <ul>
+    <li>Ruby on Rails</li>
+  </ul>
+</details>
+<details>
+  <summary>Database</summary>
+  <ul>
+    <li>PostgreSQL</li>
+  </ul>
+</details>
 
-* Deployment instructions
+<!-- Features -->
 
-* ...
+### Key Features <a id="key-features"></a>
+
+- Manages the Database of a school Database
+- Stores information about Students, Courses, Grades and the relations beetwen them
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a id="live-demo"></a>
+
+
+- [Live demo](https://bookstore-7ktx.onrender.com/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## 👥 Author <a id="authors"></a>
+
+👤 **David Espino**
+
+- GitHub: [@DavidEspinoG](https://github.com/DavidEspinoG)
+- Twitter: [@DavidEspinoG](https://twitter.com/DavidEspinoG)
+- LinkedIn: [davidespinog](https://linkedin.com/in/davidespinog)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a id="future-features"></a>
+
+- The way of getting students into courses is going to be improved in order to not get repeated courses. 
+- A lot of automated tests are going to be written 
+- Is pending to implement internationalitation using I18n gem (Backend)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 📝 License <a id="license"></a>
+
+This project is [MIT](./MIT.md) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
